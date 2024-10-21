@@ -25,9 +25,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "importsNotUsedAsValues": "error",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "src",
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"
