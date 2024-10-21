@@ -9,8 +9,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "postinstall": "yalc link ws-hr-strapi-plugin",
-    "verify": "strapi verify"
+    "postinstall": "yalc link ws-hr-strapi-plugin"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.1.0",
@@ -20,7 +19,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.0.0",
+    "ws-hr-strapi-plugin": "file:.yalc/ws-hr-strapi-plugin"
   },
   "devDependencies": {
     "@types/node": "^20",
