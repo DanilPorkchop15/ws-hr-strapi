@@ -1,0 +1,1 @@
+# Work Solutions HR app made with React and Strapi
