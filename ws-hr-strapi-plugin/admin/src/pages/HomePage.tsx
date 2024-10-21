@@ -1,16 +1,19 @@
-import { Main } from '@strapi/design-system';
-import { useIntl } from 'react-intl';
+import { Main, SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { memo } from 'react';
 
-import { getTranslation } from '../utils/getTranslation';
-
-const HomePage = () => {
-  const { formatMessage } = useIntl();
+export const HomePage = () => {
 
   return (
     <Main>
-      <h1>Welcome to {formatMessage({ id: getTranslation('plugin.name') })}</h1>
+      <h1>Welcome to BEBRA</h1>
+
+      <SingleSelect label="test" placeholder="test">
+        <SingleSelectOption value="test">test</SingleSelectOption>
+        <SingleSelectOption value="test2">test2</SingleSelectOption>
+        <SingleSelectOption value="test3">test3</SingleSelectOption>
+      </SingleSelect>
     </Main>
   );
 };
 
-export { HomePage };
+export const Component =  memo(HomePage);
