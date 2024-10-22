@@ -1,4 +1,4 @@
-import { register, registerTrads } from 'app';
+import { register, registerTrads } from './app';
 
 export default {
   register, registerTrads

@@ -11,7 +11,7 @@ export default [
   {
     method: 'POST',
     path: '/task-link',
-    handler: 'controller.createLink',
+    handler: 'controller.generateLink',
     config: {
       policies: [],
     },

@@ -1,21 +1,24 @@
-import React from "react";
-import { RouterProvider } from "react-router";
-import { useAsync } from "react-use";
+import React from 'react';
 
+import { PLUGIN_ID } from '../shared/config';
+import { PluginIcon } from '../shared/ui';
+import { Initializer } from './lib';
+import { getTranslation } from '../shared/lib';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { Route, Routes } from 'react-router-dom';
+import { Page } from '@strapi/strapi/admin';
+import { HomePage } from '../pages/HomePage';
 
-import "./index.scss";
-import { PLUGIN_ID } from 'shared/config';
-import { PluginIcon } from 'shared/ui';
-import { Initializer } from 'app/ui/Initializer';
-import { getTranslation } from 'shared/lib';
-import { Loader } from '@strapi/icons';
-
-export const App = React.memo(function App() {
-  const { value: configModule } = useAsync(async () => import("./config"));
-
-  if (!configModule?.browserRouter) return null;
-
-  return <RouterProvider fallbackElement={<Loader/>} router={configModule.browserRouter} />;
+const App = React.memo(function App() {
+  return (
+    <Provider store={store}>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="*" element={<Page.Error />} />
+      </Routes>
+    </Provider>
+  );
 });
 
 export function register(app: any) {
@@ -45,7 +48,7 @@ export async function registerTrads(app: any) {
   return await Promise.all(
     (locales as string[]).map(async (locale) => {
       try {
-        const { default: data } = await import(`shared/translations/${locale}.json`);
+        const { default: data } = await import(`@/shared/translations/${locale}.json`);
         return {
           data: getTranslation(data),
           locale,
@@ -56,6 +59,6 @@ export async function registerTrads(app: any) {
           locale,
         };
       }
-    })
+    }),
   );
 }
