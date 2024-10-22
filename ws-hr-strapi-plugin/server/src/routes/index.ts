@@ -1,9 +1,17 @@
 export default [
   {
     method: 'GET',
-    path: '/',
-    // name of the controller file & the method.
-    handler: 'controller.index',
+    path: '/task-link/:uuid',
+    handler: 'controller.validateLink',
+    config: {
+      policies: [],
+    },
+  },
+
+  {
+    method: 'POST',
+    path: '/task-link',
+    handler: 'controller.createLink',
     config: {
       policies: [],
     },
