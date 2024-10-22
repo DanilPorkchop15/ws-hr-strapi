@@ -8,13 +8,14 @@ import { PLUGIN_ID } from 'shared/config';
 import { PluginIcon } from 'shared/ui';
 import { Initializer } from 'app/ui/Initializer';
 import { getTranslation } from 'shared/lib';
+import { Loader } from '@strapi/icons';
 
 export const App = React.memo(function App() {
   const { value: configModule } = useAsync(async () => import("./config"));
 
   if (!configModule?.browserRouter) return null;
 
-  return <RouterProvider fallbackElement={<>Loading</>} router={configModule.browserRouter} />;
+  return <RouterProvider fallbackElement={<Loader/>} router={configModule.browserRouter} />;
 });
 
 export function register(app: any) {
