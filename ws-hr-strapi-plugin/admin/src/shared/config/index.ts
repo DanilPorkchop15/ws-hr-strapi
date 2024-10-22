@@ -1,1 +1,1 @@
-export * from "./pluginId"
+export * from "./constants"
