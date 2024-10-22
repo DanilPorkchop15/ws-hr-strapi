@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "task_links",
+  "info": {
+    "singularName": "task-link",
+    "pluralName": "task-links",
+    "displayName": "Task link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "uid",
+      "required": true
+    },
+    "task": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::task.task"
+    },
+    "isValid": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
