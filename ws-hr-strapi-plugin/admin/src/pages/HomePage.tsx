@@ -1,30 +1,28 @@
-import { Loader, Main, SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { Flex, Loader, SingleSelect, SingleSelectOption } from '@strapi/design-system';
 import { memo } from 'react';
 import { specialityApi } from '../entities/specialities';
+import { Page } from '@strapi/strapi/admin';
+import { GenerateLinkFeature } from '../features/GenerateLink';
 
 export const HomePage = () => {
 
-  const { data, isLoading, error } = specialityApi.useGetSpecialitiesQuery()
+  const { isLoading, error } = specialityApi.useGetSpecialitiesQuery();
 
   if (isLoading) {
-    return <Loader />
+    return <Loader />;
   }
 
   if (error) {
-    return <div>Error</div>
+    return <div>Error</div>;
   }
 
   return (
-    <Main>
-      <SingleSelect placeholder="Выберите специальность">
-        {data?.data.map((speciality) => (
-          <SingleSelectOption key={speciality.id} value={speciality.id}>
-            {speciality.name}
-          </SingleSelectOption>
-        ))}
-      </SingleSelect>
-    </Main>
+    <Flex direction="column" gap={6} alignItems="flex-start">
+      <Page.Title>Генерация ссылки</Page.Title>
+      <h1 style={{ fontSize: 24 }}>Выбор задания</h1>
+      <GenerateLinkFeature/>
+    </Flex>
   );
 };
 
-export const Component =  memo(HomePage);
+export const Component = memo(HomePage);
