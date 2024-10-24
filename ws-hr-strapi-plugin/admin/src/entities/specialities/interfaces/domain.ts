@@ -1,12 +1,12 @@
 interface Task {
-  id: number
-  name: string
-  isActive: boolean
+  id: number;
+  name: string;
+  isActive: boolean;
 }
 
 export interface Speciality {
-  id: number
-  isActive: boolean
-  name: string
-  tasks: Task[]
+  id: number;
+  isActive: boolean;
+  name: string;
+  tasks: Task[];
 }
