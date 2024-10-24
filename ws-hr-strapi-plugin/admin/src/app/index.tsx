@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PLUGIN_ID } from '../shared/config';
 import { PluginIcon } from '../shared/ui';
 import { Initializer } from './lib';

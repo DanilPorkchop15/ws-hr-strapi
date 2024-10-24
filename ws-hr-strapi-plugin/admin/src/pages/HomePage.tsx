@@ -1,4 +1,4 @@
-import { Flex, Loader, SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { Flex, Loader } from '@strapi/design-system';
 import { memo } from 'react';
 import { specialityApi } from '../entities/specialities';
 import { Page } from '@strapi/strapi/admin';
