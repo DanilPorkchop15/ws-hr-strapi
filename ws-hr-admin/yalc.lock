@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "ws-hr-strapi-plugin": {
-      "signature": "850191840ce5af2e7f98a229283db967"
+      "signature": "0d413a2de90a777c5e9b36551dbf060b"
     }
   }
 }
