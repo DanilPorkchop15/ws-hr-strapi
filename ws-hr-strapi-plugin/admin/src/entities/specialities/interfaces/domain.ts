@@ -1,6 +1,7 @@
 interface Task {
   id: number
   name: string
+  isActive: boolean
 }
 
 export interface Speciality {
