@@ -33,7 +33,7 @@ export async function registerTrads(app: any) {
   return await Promise.all(
     (locales as string[]).map(async (locale) => {
       try {
-        const { default: data } = await import(`@/shared/translations/${locale}.json`);
+        const { default: data } = await import(`../shared/translations/${locale}.json`);
         return {
           data: getTranslation(data),
           locale,
