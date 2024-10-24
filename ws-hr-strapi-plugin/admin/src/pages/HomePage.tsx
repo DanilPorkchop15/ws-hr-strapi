@@ -19,7 +19,7 @@ export const HomePage = () => {
   return (
     <Flex direction="column" gap={6} alignItems="flex-start">
       <Page.Title>Генерация ссылки</Page.Title>
-      <h1 style={{ fontSize: 24 }}>Выбор задания</h1>
+      <h1 style={{ fontSize: 24, fontWeight: 500 }}>Выбор задания</h1>
       <GenerateLinkFeature/>
     </Flex>
   );
