@@ -4,22 +4,7 @@ import { PLUGIN_ID } from '../shared/config';
 import { PluginIcon } from '../shared/ui';
 import { Initializer } from './lib';
 import { getTranslation } from '../shared/lib';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import { Route, Routes } from 'react-router-dom';
-import { Page } from '@strapi/strapi/admin';
-import { HomePage } from '../pages/HomePage';
-
-const App = React.memo(function App() {
-  return (
-    <Provider store={store}>
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="*" element={<Page.Error />} />
-      </Routes>
-    </Provider>
-  );
-});
+import { App } from './config';
 
 export function register(app: any) {
   app.addMenuLink({
