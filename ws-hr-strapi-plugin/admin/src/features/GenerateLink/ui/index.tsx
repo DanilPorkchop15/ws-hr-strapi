@@ -9,7 +9,7 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
   const { data, isLoading, error } = specialityApi.useGetSpecialitiesQuery();
   const [selectedSpeciality, setSelectedSpeciality] = useState<number | undefined>();
 
-  const taskId = getRandomTaskId(data?.data, selectedSpeciality)
+  const taskId = data && selectedSpeciality ? getRandomTaskId(data?.data, selectedSpeciality) : undefined
 
   if (isLoading) {
     return <Loader />;
@@ -19,12 +19,15 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
     return <div>Error</div>;
   }
 
-  if (data?.data.every(({ isActive }) => !isActive) || data?.data.every(({ tasks }) => !tasks.length)) {
+  if (
+    data?.data.every(({ isActive }) => !isActive)
+    || data?.data.every(({ tasks }) => !tasks.every(({ isActive }) => !isActive))
+  ) {
     return <p>Для выбора задания необходимо добавить хотя бы одну активную специальность и хотя бы одно активное задания для нее.</p>
   }
 
   const handleSelect = (specialityId: number) => {
-    specialityId && setSelectedSpeciality(data?.data.find(({ id }) => id === specialityId)?.tasks[0]?.id);
+    specialityId && setSelectedSpeciality(data?.data.find(({ id }) => id === specialityId)?.id);
   }
 
   return (
