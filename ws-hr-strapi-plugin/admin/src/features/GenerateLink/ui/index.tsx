@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from "react";
 import { SpecialitySelect } from '../../../entities/specialities/ui';
 import { specialityApi } from '../../../entities/specialities';
 import { Flex, Loader } from '@strapi/design-system';
@@ -21,6 +21,7 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
 
   if (
     data?.data.every(({ isActive }) => !isActive)
+    || data?.data.every(({ tasks }) => tasks.length === 0)
     || data?.data.every(({ tasks }) => !tasks.every(({ isActive }) => !isActive))
   ) {
     return <p>Для выбора задания необходимо добавить хотя бы одну активную специальность и хотя бы одно активное задания для нее.</p>
@@ -29,6 +30,7 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
   const handleSelect = (specialityId: number) => {
     specialityId && setSelectedSpeciality(data?.data.find(({ id }) => id === specialityId)?.id);
   }
+
 
   return (
     <Flex direction="column" gap={6} alignItems="flex-start">

@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from '../shared/api';
+import { specialityApi } from "../entities/specialities";
 
 export const store = configureStore({
   reducer: {
-    [baseApi.reducerPath]: baseApi.reducer,
+    [specialityApi.reducerPath]: specialityApi.reducer
 
   },
   middleware: (getDefaultMiddleware) =>
