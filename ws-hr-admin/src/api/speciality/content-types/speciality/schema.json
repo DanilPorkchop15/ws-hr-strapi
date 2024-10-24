@@ -19,6 +19,12 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "speciality"
     }
   }
 }

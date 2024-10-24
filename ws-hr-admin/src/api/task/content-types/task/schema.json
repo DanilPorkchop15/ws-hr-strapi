@@ -4,7 +4,8 @@
   "info": {
     "singularName": "task",
     "pluralName": "tasks",
-    "displayName": "Task"
+    "displayName": "Task",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,8 +23,9 @@
     },
     "speciality": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::speciality.speciality"
+      "relation": "manyToOne",
+      "target": "api::speciality.speciality",
+      "inversedBy": "tasks"
     },
     "isActive": {
       "type": "boolean",

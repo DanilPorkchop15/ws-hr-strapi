@@ -15,6 +15,7 @@ export interface ApiSpecialitySpeciality extends Struct.CollectionTypeSchema {
     isActive: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
+    tasks: Schema.Attribute.Relation<'oneToMany', 'api::task.task'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -37,6 +38,7 @@ export interface ApiTaskTask extends Struct.CollectionTypeSchema {
     singularName: 'task';
     pluralName: 'tasks';
     displayName: 'Task';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -47,7 +49,7 @@ export interface ApiTaskTask extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<' '>;
     text: Schema.Attribute.RichText & Schema.Attribute.Required;
     speciality: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::speciality.speciality'
     >;
     isActive: Schema.Attribute.Boolean &
