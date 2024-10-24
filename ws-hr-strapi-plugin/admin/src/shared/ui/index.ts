@@ -1,1 +1,1 @@
-export * from "./PluginIcon"
+export * from "./icons"
