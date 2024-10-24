@@ -4,11 +4,14 @@ export const getRandomTaskId = (specialities?: Speciality[], specialityId?: numb
   if (!specialities || !specialityId) {
     return;
   }
+
   const speciality = specialities.find(({ id }) => id === specialityId);
 
   if (!speciality) {
     return;
   }
 
-  return speciality.tasks[Math.floor(Math.random() * speciality.tasks.length)].id;
+  const activeTasks = speciality.tasks.filter(({ isActive }) => isActive);
+
+  return activeTasks[Math.floor(Math.random() * activeTasks.length)].id;
 }
