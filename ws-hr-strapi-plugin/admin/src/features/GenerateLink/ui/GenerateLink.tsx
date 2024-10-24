@@ -20,7 +20,6 @@ export const GenerateLink = memo(function GenerateLink({ task }: GenerateLinkPro
   const handleCopyLink = () => {
     if (link) {
       navigator.clipboard.writeText(link).then(_ => setIcon(<Check />));
-
     }
   }
 
@@ -39,7 +38,7 @@ export const GenerateLink = memo(function GenerateLink({ task }: GenerateLinkPro
   }
 
   if (!task) {
-    return <p>Необходимо выбрать специальность. {String(task)}</p>
+    return <p>Необходимо выбрать специальность.</p>
   }
 
   return (
