@@ -6,9 +6,7 @@ import { TaskWidget } from "widgets/task";
 export const TaskPage = () => {
   const { uuid } = useParams();
   document.title = "WS | Тестовое задание";
-  return (
-    <TaskWidget uuid={uuid} />
-  );
+  return <TaskWidget uuid={uuid} />;
 };
 
 export const Component = memo(TaskPage);

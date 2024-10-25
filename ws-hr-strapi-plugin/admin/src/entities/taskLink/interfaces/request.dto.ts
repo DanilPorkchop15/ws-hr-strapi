@@ -1,4 +1,4 @@
 export interface CreateLinkDto {
-  taskId: number
-  uuid: string
+  taskId: number;
+  uuid: string;
 }

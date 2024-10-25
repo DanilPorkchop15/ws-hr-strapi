@@ -3,7 +3,7 @@ import { memo } from "react";
 import { TaskCardView } from "entities/task";
 import { taskLinkApi } from "entities/taskLink";
 
-export const TaskWidget = memo(function TaskWidget({ uuid } : { uuid?: string }) {
+export const TaskWidget = memo(function TaskWidget({ uuid }: { uuid?: string }) {
   const { data, isLoading, error } = taskLinkApi.useGetTaskLinkQuery(String(uuid));
 
   if (isLoading) return <div>Loading...</div>;

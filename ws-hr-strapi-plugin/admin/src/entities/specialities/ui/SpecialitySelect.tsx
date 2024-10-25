@@ -7,13 +7,16 @@ interface SpecialitySelectProps {
   onSelect: (specialityId: number) => void;
 }
 
-export const SpecialitySelect = memo(function SpecialitySelect({ specialities = [], onSelect }: SpecialitySelectProps) {
+export const SpecialitySelect = memo(function SpecialitySelect({
+  specialities = [],
+  onSelect,
+}: SpecialitySelectProps) {
   const [selectedSpeciality, setSelectedSpeciality] = useState<string | number | null>(null);
 
   const handleChange = (value: string | number) => {
-      const specialityId = Number(value);
-      setSelectedSpeciality(value); // Set the selected value in state
-      onSelect(specialityId); // Trigger the onSelect callback with the selected id
+    const specialityId = Number(value);
+    setSelectedSpeciality(value); // Set the selected value in state
+    onSelect(specialityId); // Trigger the onSelect callback with the selected id
   };
 
   return (
@@ -24,11 +27,14 @@ export const SpecialitySelect = memo(function SpecialitySelect({ specialities = 
         value={selectedSpeciality} // Controlled value
         onChange={handleChange} // Handle change and set selected value
       >
-        {specialities.map((speciality) => speciality.isActive && (
-          <SingleSelectOption key={speciality.id} value={String(speciality.id)}>
-            {speciality.name}
-          </SingleSelectOption>
-        ))}
+        {specialities.map(
+          (speciality) =>
+            speciality.isActive && (
+              <SingleSelectOption key={speciality.id} value={String(speciality.id)}>
+                {speciality.name}
+              </SingleSelectOption>
+            )
+        )}
       </SingleSelect>
     </Flex>
   );

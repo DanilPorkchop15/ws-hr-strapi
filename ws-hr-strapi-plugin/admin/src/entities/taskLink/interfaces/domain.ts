@@ -1,6 +1,6 @@
 export interface TaskLink {
-  id: number
-  uuid: string
-  isValid: boolean
-  task: number
+  id: number;
+  uuid: string;
+  isValid: boolean;
+  task: number;
 }

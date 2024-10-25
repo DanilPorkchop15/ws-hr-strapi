@@ -8,8 +8,8 @@ export const taskLinkApi = baseApi.injectEndpoints({
       query: (task) => ({
         url: ApiRoutes.getTaskLinks(),
         method: 'POST',
-        body: { data: { task }},
+        body: { data: { task } },
       }),
-    })
+    }),
   }),
 });

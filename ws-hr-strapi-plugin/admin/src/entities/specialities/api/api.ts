@@ -4,7 +4,7 @@ import { ApiRoutes } from '../../../shared/model';
 
 export const specialityApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getSpecialities: build.query<{data: Speciality[]}, void>({
+    getSpecialities: build.query<{ data: Speciality[] }, void>({
       query: () => ({
         url: ApiRoutes.getSpecialities(),
       }),

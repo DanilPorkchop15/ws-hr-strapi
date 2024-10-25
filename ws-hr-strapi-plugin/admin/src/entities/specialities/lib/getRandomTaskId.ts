@@ -1,4 +1,4 @@
-import { Speciality } from "../interfaces";
+import { Speciality } from '../interfaces';
 
 export const getRandomTaskId = (specialities?: Speciality[], specialityId?: number) => {
   if (!specialities || !specialityId) {
@@ -14,4 +14,4 @@ export const getRandomTaskId = (specialities?: Speciality[], specialityId?: numb
   const activeTasks = speciality.tasks.filter(({ isActive }) => isActive);
 
   return activeTasks[Math.floor(Math.random() * activeTasks.length)].id;
-}
+};

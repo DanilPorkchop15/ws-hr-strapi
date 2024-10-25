@@ -1,1 +1,1 @@
-export * from "./getRandomTaskId"
+export * from './getRandomTaskId';

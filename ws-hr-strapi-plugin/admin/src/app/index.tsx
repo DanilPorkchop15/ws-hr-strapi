@@ -42,6 +42,6 @@ export async function registerTrads(app: any) {
           locale,
         };
       }
-    }),
+    })
   );
 }

@@ -5,7 +5,6 @@ import { Page } from '@strapi/strapi/admin';
 import { GenerateLinkFeature } from '../features/GenerateLink';
 
 export const HomePage = () => {
-
   const { isLoading, error } = specialityApi.useGetSpecialitiesQuery();
 
   if (isLoading) {
@@ -20,7 +19,7 @@ export const HomePage = () => {
     <Flex direction="column" gap={6} alignItems="flex-start">
       <Page.Title>Генерация ссылки</Page.Title>
       <h1 style={{ fontSize: 24, fontWeight: 500 }}>Выбор задания</h1>
-      <GenerateLinkFeature/>
+      <GenerateLinkFeature />
     </Flex>
   );
 };

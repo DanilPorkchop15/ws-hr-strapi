@@ -7,8 +7,6 @@ import { baseApi } from "shared/api";
 export const store = configureStore({
   reducer: {
     [taskLinkApi.reducerPath]: taskLinkApi.reducer,
-
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
 });

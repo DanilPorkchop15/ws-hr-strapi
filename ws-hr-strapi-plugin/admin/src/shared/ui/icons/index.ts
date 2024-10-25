@@ -1,2 +1,2 @@
-export * from "./PluginIcon"
-export * from "./CopyIcon"
+export * from './PluginIcon';
+export * from './CopyIcon';
