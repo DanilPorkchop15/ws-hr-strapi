@@ -23,10 +23,12 @@ export const GenerateLink = memo(function GenerateLink({ task }: GenerateLinkPro
     }
   }
 
+
   useEffect(() => {
     if (data) {
       setLink(`${CLIENT_APP_URL}/${data.data.uuid}`);
     }
+    setIcon(<CopyIcon/>);
   }, [data, task]);
 
   if (error) {
