@@ -11,6 +11,8 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
 
   const taskId = data && selectedSpeciality ? getRandomTaskId(data?.data, selectedSpeciality) : undefined
 
+  const activeSpecialities = data?.data.filter(sp => sp.isActive && sp.tasks.some(task => task.isActive)) || [];
+
   if (isLoading) {
     return <Loader />;
   }
@@ -19,22 +21,13 @@ export const GenerateLinkFeature  = memo(function GenerateLinkFeature() {
     return <div>Error</div>;
   }
 
-  if (
-    data?.data.every(({ isActive }) => !isActive)
-    || data?.data.every(({ tasks }) => tasks.length === 0)
-    || data?.data.every(({ tasks }) => !tasks.every(({ isActive }) => !isActive))
-  ) {
+  if (activeSpecialities.length === 0) {
     return <p>Для выбора задания необходимо добавить хотя бы одну активную специальность и хотя бы одно активное задания для нее.</p>
   }
 
-  const handleSelect = (specialityId: number) => {
-    specialityId && setSelectedSpeciality(data?.data.find(({ id }) => id === specialityId)?.id);
-  }
-
-
   return (
     <Flex direction="column" gap={6} alignItems="flex-start">
-      <SpecialitySelect onSelect={handleSelect} specialities={data?.data} />
+      <SpecialitySelect onSelect={setSelectedSpeciality} specialities={activeSpecialities} />
       <GenerateLink task={taskId} />
     </Flex>
   )
