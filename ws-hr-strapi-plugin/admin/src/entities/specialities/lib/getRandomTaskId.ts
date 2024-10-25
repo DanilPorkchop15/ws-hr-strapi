@@ -1,4 +1,4 @@
-import { Speciality } from '../../../entities/specialities';
+import { Speciality } from "../interfaces";
 
 export const getRandomTaskId = (specialities?: Speciality[], specialityId?: number) => {
   if (!specialities || !specialityId) {

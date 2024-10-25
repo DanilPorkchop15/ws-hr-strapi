@@ -2,8 +2,8 @@ import { memo, ReactNode, useEffect, useState } from 'react';
 import { Button, Flex, IconButton, Link, Loader } from '@strapi/design-system';
 import { CopyIcon } from '../../../shared/ui';
 import { Check } from '@strapi/icons';
-import { taskLinkApi } from '../api';
 import { CLIENT_APP_URL } from '../../../shared/config';
+import { taskLinkApi } from "../../../entities/taskLink";
 
 interface GenerateLinkProps {
   task?: number;
@@ -11,18 +11,14 @@ interface GenerateLinkProps {
 
 export const GenerateLink = memo(function GenerateLink({ task }: GenerateLinkProps) {
   const [link, setLink] = useState<string | null>(null);
-
-  const [createTaskLink, { isLoading, error, data }] = taskLinkApi.useCreateTaskLinkMutation();
-
+  const [createTaskLink, { isLoading, error, data }] = taskLinkApi.useCreateTaskLinkMutation()
   const [icon, setIcon] = useState<ReactNode>(<CopyIcon />);
-
 
   const handleCopyLink = () => {
     if (link) {
       navigator.clipboard.writeText(link).then(_ => setIcon(<Check />));
     }
   }
-
 
   useEffect(() => {
     if (data) {
