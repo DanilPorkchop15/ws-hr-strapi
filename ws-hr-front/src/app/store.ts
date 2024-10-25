@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { taskLinkApi } from "entities/taskLink";
 
-import { baseApi } from "../shared/api";
+import { baseApi } from "shared/api";
 
 export const store = configureStore({
   reducer: {

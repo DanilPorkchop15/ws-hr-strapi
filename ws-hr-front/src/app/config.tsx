@@ -3,8 +3,7 @@ import { Outlet } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 
 import { AppRoutes } from "shared/model";
-
-import { Layout } from "../shared/ui/layout";
+import { Layout } from "shared/ui/Layout";
 
 import { store } from "./store";
 

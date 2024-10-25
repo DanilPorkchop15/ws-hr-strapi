@@ -1,28 +1,13 @@
 import { memo } from "react";
 import { useParams } from "react-router";
 
-import { TaskCardView } from "../../entities/task";
-import { taskLinkApi } from "../../entities/taskLink";
+import { TaskWidget } from "widgets/task";
 
 export const TaskPage = () => {
   const { uuid } = useParams();
-
-  const { data, isLoading, error } = taskLinkApi.useGetTaskLinkQuery(String(uuid));
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Ссылка недействительна или уже использована</div>;
-  if (!data) return <div>No data</div>;
-
+  document.title = "WS | Тестовое задание";
   return (
-    <div className="flex flex-col gap-12">
-      <h1 className="text-center text-3xl font-bold">Тестовое задание</h1>
-      <TaskCardView task={data.task} />
-      <p>
-        На выполнение задания дается 40 минут. Не забудьте включить запись экрана. По окончании решения выложите запись
-        в облако и отправьте ссылку на нее ответным письмом На перезагружайте страницу – ссылка на задание является
-        одноразовой.
-      </p>
-    </div>
+    <TaskWidget uuid={uuid} />
   );
 };
 
