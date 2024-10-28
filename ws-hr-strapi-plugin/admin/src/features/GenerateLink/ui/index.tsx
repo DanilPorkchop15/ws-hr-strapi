@@ -3,7 +3,7 @@ import { SpecialitySelect } from '../../../entities/specialities/ui';
 import { specialityApi } from '../../../entities/specialities';
 import { Flex, Loader } from '@strapi/design-system';
 import { GenerateLink } from './GenerateLink';
-import { getRandomTaskId } from '../lib';
+import {getRandomTaskId} from "../../../entities/specialities/lib";
 
 export const GenerateLinkFeature = memo(function GenerateLinkFeature() {
   const { data, isLoading, error } = specialityApi.useGetSpecialitiesQuery();
