@@ -15,3 +15,16 @@ npm run start:server
 ```bash
 npm run start:client
 ```
+
+## Первичная настройка сервера
+
+Для работы плагина необходимо выполнить следующие действия:
+- Перейдите в **Settings** -> **Users & Permissions Plugin** -> **Roles**;
+- Установите для роли **Public** права:
+  - **Speciality**:
+    - **find**- ;
+  - **Task**:
+    - **find**;
+  - **Task Link**:
+    - **findOne**;
+    - **create**.
