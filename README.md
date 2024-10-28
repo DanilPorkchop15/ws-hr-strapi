@@ -25,6 +25,7 @@ npm run start:client
     - **find**- ;
   - **Task**:
     - **find**;
+    - **findOne**;
   - **Task Link**:
     - **findOne**;
     - **create**.
