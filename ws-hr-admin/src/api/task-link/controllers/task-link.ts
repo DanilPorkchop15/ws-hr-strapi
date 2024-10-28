@@ -15,9 +15,10 @@ export default factories.createCoreController(
         .query("api::task-link.task-link")
         .findMany({
           where: {uuid: id, isValid: true},
-          populate: ["task"],
+          populate: {
+            task: true,
+          },
         });
-
       if (taskLinks.length === 0) {
         return ctx.badRequest("Ссылка недействительна или уже использована");
       }
