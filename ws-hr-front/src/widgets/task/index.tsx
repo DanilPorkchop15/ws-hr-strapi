@@ -13,7 +13,7 @@ export const TaskWidget = memo(function TaskWidget({ uuid }: { uuid?: string }) 
   return (
     <div className="flex flex-col gap-12">
       <h1 className="text-center text-3xl font-bold">Тестовое задание</h1>
-      <TaskCardView task={data.task} />
+      <TaskCardView task={data.data[0].task} />
       <p>
         На выполнение задания дается 40 минут. Не забудьте включить запись экрана. По окончании решения выложите запись
         в облако и отправьте ссылку на нее ответным письмом На перезагружайте страницу – ссылка на задание является

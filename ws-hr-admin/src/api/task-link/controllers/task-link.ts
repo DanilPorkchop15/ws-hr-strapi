@@ -2,39 +2,48 @@
  * task-link controller
  */
 
-import { factories } from "@strapi/strapi";
-import { v4 as uuidv4 } from "uuid";
+import {factories} from "@strapi/strapi";
+import {v4 as uuidv4} from "uuid";
 
 export default factories.createCoreController(
   "api::task-link.task-link",
-  ({ strapi }) => ({
+  ({strapi}) => ({
     async findOne(ctx) {
-      const { id } = ctx.params;
+      const {id} = ctx.params;
 
-      const taskLink = await strapi.db
+      const taskLinks = await strapi.db
         .query("api::task-link.task-link")
-        .findOne({
-          where: { uuid: id, isValid: true },
+        .findMany({
+          where: {uuid: id, isValid: true},
           populate: ["task"],
         });
 
-      if (!taskLink) {
+      if (taskLinks.length === 0) {
         return ctx.badRequest("Ссылка недействительна или уже использована");
       }
 
-      await strapi.entityService.update("api::task-link.task-link", taskLink.id, {
-        data: {
-          isValid: false
-        }
-      })
+      await Promise.all(taskLinks.map(taskLink =>
+        strapi.entityService.update("api::task-link.task-link", taskLink.id, {
+          data: {
+            isValid: false
+          }
+        })
+      ));
 
-      return taskLink;
+      const uniqueLinks = taskLinks.filter((taskLink, index, self) =>
+        index === self.findIndex((t) => t.uuid === taskLink.uuid)
+      );
+      const sanitizedResults = await this.sanitizeOutput(uniqueLinks, ctx);
+
+      return this.transformResponse(sanitizedResults);
     },
+
+
     async create(ctx) {
       const uuid = uuidv4();
-      const { data } = ctx.request.body;
+      const {data} = ctx.request.body;
       const result = await strapi.entityService.create("api::task-link.task-link", {
-        data : {
+        data: {
           ...data,
           uuid,
           isValid: true
