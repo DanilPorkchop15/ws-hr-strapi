@@ -50,6 +50,7 @@ export default factories.createCoreController(
           isValid: true
         }
       })
+
       const sanitizedResults = await this.sanitizeOutput(result, ctx);
 
       return this.transformResponse(sanitizedResults);
