@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "packages": {
+    "ws-hr-strapi-plugin": {
+      "signature": "8ae491d868ff0e6f0ac19a56e5f341ff"
+    }
+  }
+}
