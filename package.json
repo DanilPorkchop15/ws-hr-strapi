@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "HR app for Work Solutions",
   "scripts": {
-    "start:server": "cd ws-hr-strapi-plugin && cp ./env.example .env && npm i && npm run build && npm run publish-plugin && cd ../ws-hr-admin && npm i && npm run build && npm start && cd ../ws-hr-front && npm start",
+    "start:server": "cd ws-hr-strapi-plugin && cp ./.env.example .env && npm i && npm run build && npm run publish-plugin && cd ../ws-hr-admin && npm i && npm run build && npm start && cd ../ws-hr-front && npm start",
     "start:client": "cd ws-hr-front && npm i && npm start"
   },
   "author": "Danil Kostin",
