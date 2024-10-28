@@ -9,7 +9,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "postinstall": "yalc link ws-hr-strapi-plugin"
+    "postinstall": "yalc link ws-hr-strapi-plugin",
+    "load-plugin": "yalc add ws-hr-strapi-plugin && npm i"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.1.0",
