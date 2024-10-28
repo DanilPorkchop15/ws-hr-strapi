@@ -7,11 +7,11 @@
 ## Запуск сервера
 
 ```bash
-npm run start-server
+npm run start:server
 ```
 
 ## Запуск клиента
 
 ```bash
-npm run start-client
+npm run start:client
 ```
