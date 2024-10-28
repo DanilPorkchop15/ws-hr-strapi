@@ -31,12 +31,7 @@ export default factories.createCoreController(
         })
       ));
 
-      const uniqueLinks = taskLinks.filter((taskLink, index, self) =>
-        index === self.findIndex((t) => t.uuid === taskLink.uuid)
-      );
-      const sanitizedResults = await this.sanitizeOutput(uniqueLinks, ctx);
-
-      return this.transformResponse(sanitizedResults);
+      return taskLinks[0];
     },
 
 
